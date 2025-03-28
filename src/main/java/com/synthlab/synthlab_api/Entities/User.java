@@ -1,12 +1,19 @@
 package com.synthlab.synthlab_api.Entities;
 
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.Date;
 
+import org.hibernate.annotations.CreationTimestamp;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 
 @Entity
 @Table(name = "app_user")
@@ -22,8 +29,11 @@ public class User {
     private String correo;
     private String password;
     private Date fecha_nacimiento;
+
+    @CreationTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(updatable = false)
     private Date created_at;
-    private String pathAvatar;
 
     public Long getId() {
         return id;
@@ -73,12 +83,5 @@ public class User {
     public void setCreatedAt(Date created_at) {
         this.created_at = created_at;
     }
-    public String getPathAvatar() {
-        return pathAvatar;
-    }
-    public void setPathAvatar(String path_avatar) {
-        this.pathAvatar = path_avatar;
-    }
-
     
 }

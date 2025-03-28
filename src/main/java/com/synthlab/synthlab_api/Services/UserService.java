@@ -47,7 +47,6 @@ public class UserService {
         
         user.setFechaNacimiento(userDetails.getFechaNacimiento());
         user.setCreatedAt(userDetails.getCreatedAt());
-        user.setPathAvatar(userDetails.getPathAvatar());
 
         return userRepository.save(user);
     }
