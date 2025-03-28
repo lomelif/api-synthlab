@@ -10,20 +10,16 @@ import java.util.List;
 
 @Configuration
 public class CorsConfig {
-
     @Bean
     public CorsFilter corsFilter() {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
-        
-        config.setAllowedOriginPatterns(List.of("*")); 
-        
+
+        config.setAllowedOrigins(List.of("*"));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-        
         config.setAllowedHeaders(List.of("*"));
-        
-        config.setAllowCredentials(true);
-        
+        config.setAllowCredentials(false);
+
         source.registerCorsConfiguration("/**", config);
         return new CorsFilter(source);
     }
