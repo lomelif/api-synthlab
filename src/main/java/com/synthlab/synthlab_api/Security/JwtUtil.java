@@ -13,8 +13,8 @@ public class JwtUtil {
 
     private final SecretKey secretKey;
 
-    public JwtUtil(@Value("${JWT_SECRET}") String secret) {
-        this.secretKey = Keys.hmacShaKeyFor(secret.getBytes());
+    public JwtUtil() {
+        this.secretKey = Keys.secretKeyFor(SignatureAlgorithm.HS256);
     }
 
     public String generateToken(String email) {

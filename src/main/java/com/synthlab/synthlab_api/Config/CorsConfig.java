@@ -15,10 +15,15 @@ public class CorsConfig {
     public CorsFilter corsFilter() {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(List.of("https://synthlab.io"));
+        
+        config.setAllowedOriginPatterns(List.of("*")); 
+        
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-        config.setAllowedHeaders(List.of("Authorization", "Content-Type"));
+        
+        config.setAllowedHeaders(List.of("*"));
+        
         config.setAllowCredentials(true);
+        
         source.registerCorsConfiguration("/**", config);
         return new CorsFilter(source);
     }
