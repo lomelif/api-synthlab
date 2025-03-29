@@ -12,6 +12,7 @@ import com.synthlab.synthlab_api.Services.LeccionService;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/lecciones")
 public class LeccionController {
     private final LeccionService leccionService;

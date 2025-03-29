@@ -2,6 +2,7 @@ package com.synthlab.synthlab_api.Controllers;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +16,7 @@ import com.synthlab.synthlab_api.Entities.User;
 import com.synthlab.synthlab_api.Services.UserService;
 
 @RestController
+@CrossOrigin
 @RequestMapping("users")
 public class UserController {
     private final UserService userService;
