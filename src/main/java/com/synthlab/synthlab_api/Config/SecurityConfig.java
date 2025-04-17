@@ -15,7 +15,6 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -30,10 +29,10 @@ public class SecurityConfig implements WebMvcConfigurer {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http, JwtFilter jwtFilter) throws Exception {
         http
-            .cors(cors -> cors.configurationSource(corsConfigurationSource())) // Configurar CORS
-            .csrf(csrf -> csrf.disable())  // Deshabilitar CSRF
+            .cors(cors -> cors.configurationSource(corsConfigurationSource()))
+            .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/auth/**").permitAll()// Asegúrate de permitir el acceso al endpoint de login
+                .requestMatchers("/auth/**").permitAll()
                 .requestMatchers("/avatars/**").permitAll()
                 .anyRequest().authenticated()
             )
