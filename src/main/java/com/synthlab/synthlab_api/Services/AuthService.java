@@ -19,10 +19,9 @@ public class AuthService {
 
     private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
-    public String register(User user) {
+    public User register(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        userRepository.save(user);
-        return "Usuario registrado con éxito";
+        return userRepository.save(user);
     }
 
     public String login(String correo, String password) {
