@@ -1,7 +1,5 @@
 package com.synthlab.synthlab_api.Controllers;
 
-import com.synthlab.synthlab_api.Entities.Avatar;
-import com.synthlab.synthlab_api.Entities.User;
 import com.synthlab.synthlab_api.Entities.UsuarioAvatar;
 import com.synthlab.synthlab_api.Services.UsuarioAvatarService;
 

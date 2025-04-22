@@ -22,11 +22,9 @@ public class UsuarioAvatarService {
     private AvatarRepository avatarRepository;
 
     public UsuarioAvatar agregarUsuarioAvatar(Long userId, Long avatarId) {
-        // Buscar usuario y avatar por ID
         User user = userRepository.findById(userId).orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
         Avatar avatar = avatarRepository.findById(avatarId).orElseThrow(() -> new RuntimeException("Avatar no encontrado"));
 
-        // Crear la relación y guardarla
         UsuarioAvatar usuarioAvatar = new UsuarioAvatar(user, avatar);
         return usuarioAvatarRepository.save(usuarioAvatar);
     }
