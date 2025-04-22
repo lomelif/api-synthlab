@@ -4,6 +4,9 @@ import com.synthlab.synthlab_api.Entities.Avatar;
 import com.synthlab.synthlab_api.Entities.User;
 import com.synthlab.synthlab_api.Entities.UsuarioAvatar;
 import com.synthlab.synthlab_api.Services.UsuarioAvatarService;
+
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,7 +19,10 @@ public class UsuarioAvatarController {
     private UsuarioAvatarService usuarioAvatarService;
 
     @PostMapping("/agregar")
-    public UsuarioAvatar agregarUsuarioAvatar(@RequestParam User user, @RequestParam Avatar avatar) {
-        return usuarioAvatarService.agregarUsuarioAvatar(user, avatar);
+    public UsuarioAvatar agregarUsuarioAvatar(@RequestBody Map<String, Long> request) {
+        Long userId = request.get("id_usuario");
+        Long avatarId = request.get("id_avatar");
+
+        return usuarioAvatarService.agregarUsuarioAvatar(userId, avatarId);
     }
 }
