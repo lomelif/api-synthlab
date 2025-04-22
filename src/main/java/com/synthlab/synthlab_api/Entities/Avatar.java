@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -15,6 +16,9 @@ public class Avatar {
     private Long id;
 
     private String img;
+
+    @ManyToOne
+    private User user;
 
     public Long getId() {
         return id;
@@ -30,6 +34,14 @@ public class Avatar {
 
     public void setImg(String img) {
         this.img = img;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     

@@ -34,6 +34,7 @@ public class SecurityConfig implements WebMvcConfigurer {
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/auth/**").permitAll()
                 .requestMatchers("/avatars/**").permitAll()
+                .requestMatchers("/lecciones/**").permitAll()
                 .requestMatchers("/usuario-avatar/**").permitAll()
                 .requestMatchers("/").permitAll()
 
